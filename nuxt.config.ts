@@ -5,8 +5,19 @@ export default defineNuxtConfig({
       title: 'Marvel Heroes!',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: './img/deadpool.png'
+        }
+      ]
     }
   },
+  css: [
+    '@/public/css/reset.css',
+    '@/public/css/main.css'
+  ],
   devtools: { enabled: true },
   modules: [
     'vuetify-nuxt-module'

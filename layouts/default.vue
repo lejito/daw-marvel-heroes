@@ -1,21 +1,20 @@
 <template>
-	<v-layout class="rounded rounded-md">
-		<v-app-bar title="Marvel Heroes!">
-		</v-app-bar>
-		<v-main class="align-center justify-center">
-			<!-- slot: Carga el contenido de la página (pages/..) -->
+	<div class="layout">
+		<nav class="navbar">
+			<a class="navbar__link" href=".">
+				<img src="../public/img/deadpool.png" alt="Logo" class="navbar__img">
+				<h1 class="navbar__title">
+					{{ appTitle }}
+				</h1>
+			</a>
+		</nav>
+
+		<main class="content">
 			<slot />
-		</v-main>
-	</v-layout>
+		</main>
+	</div>
 </template>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
-
-body {
-	font-family: 'Marvel', sans-serif;
-}
-</style>
-
-<script>
+<script setup lang="ts">
+const appTitle = 'Marvel Heroes!';
 </script>
