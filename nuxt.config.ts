@@ -9,14 +9,14 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/png',
-          href: './img/deadpool.png'
+          href: './deadpool.png'
         }
       ]
     }
   },
   css: [
-    '@/public/css/reset.css',
-    '@/public/css/main.css'
+    '~/assets/css/reset.css',
+    '~/assets/css/main.css'
   ],
   devtools: { enabled: true },
   modules: [
