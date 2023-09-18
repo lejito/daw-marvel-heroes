@@ -17,6 +17,6 @@
 	</div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const appTitle = 'Marvel Heroes!';
 </script>

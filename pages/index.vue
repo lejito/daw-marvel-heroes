@@ -1,6 +1,6 @@
 <template>
 	<div class="heroes">
-		<div class="hero" v-for="hero in heroes" :key="hero.id">
+		<div class="hero" v-for="hero in heroes" :key="hero.id" @click="visualizeHero(hero.id)">
 			<div class="hero__container-img">
 				<img :src="hero.thumbnail.path + '.' + hero.thumbnail.extension" alt="hero.name" class="hero__img">
 			</div>
@@ -10,7 +10,10 @@
 				</h3>
 			</div>
 		</div>
+		
 	</div>
+
+	<Dialog v-if="openDialog" :hero="dialogHero" @closeHeroDialog="closeHeroDialog" />
 </template>
 
 
@@ -23,6 +26,8 @@ onBeforeMount(() => {
 });
 
 const heroes = ref([]);
+const dialogHero = ref({});
+const openDialog = ref(false);
 
 const loadHeroes = async () => {
 	const timestamp = new Date().getTime();
@@ -30,15 +35,22 @@ const loadHeroes = async () => {
 	const privateKey = "7f2800e7f17ea65a7b81de97708ea05737a02714";
 	const hash = md5(timestamp + privateKey + publicKey);
 	const url = `http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
-	console.log(url);
 
 	await axios.get(url)
 	.then((res) => {
-		console.log(res.data);
 		heroes.value = res.data.data.results;
 	})
 	.catch((err) => {
 		console.log(err);
 	})
+}
+
+const visualizeHero = (idHero) => {
+	dialogHero.value = heroes.value.find(hero => hero.id == idHero);
+	openDialog.value = true;
+}
+
+const closeHeroDialog = () => {
+	openDialog.value = false;
 }
 </script>
