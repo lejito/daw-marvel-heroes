@@ -7,6 +7,8 @@
 					{{ appTitle }}
 				</h1>
 			</a>
+
+			<a href="http://marvel.com" target="_blank">Data provided by Marvel. © 2023 MARVEL</a>
 		</nav>
 
 		<main class="content">
