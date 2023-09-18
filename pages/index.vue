@@ -34,7 +34,7 @@ const loadHeroes = async () => {
 	const publicKey = "9386e28bb9f2c1907aaae18153ac5ea0";
 	const privateKey = "7f2800e7f17ea65a7b81de97708ea05737a02714";
 	const hash = md5(timestamp + privateKey + publicKey);
-	const url = `http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+	const url = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 
 	await axios.get(url)
 	.then((res) => {

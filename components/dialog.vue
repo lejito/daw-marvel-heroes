@@ -57,6 +57,9 @@
                   <v-icon icon="mdi-star" size="x-small"></v-icon>
                   {{ serie.name }}
                 </li>
+                <span v-if="hero.series.items.length === 0">
+                  No series to show...
+                </span>
               </ul>
             </div>
           </div>
