@@ -1,6 +1,6 @@
 <template>
 	<div class="heroes">
-		<div class="hero" v-for="hero in heroes" :key="hero.id" @click="visualizeHero(hero.id)">
+		<div class="hero" v-for="hero in heroes.slice(0,50)" :key="hero.id" @click="visualizeHero(hero.id)">
 			<div class="hero__container-img">
 				<img :src="hero.thumbnail.path + '.' + hero.thumbnail.extension" alt="hero.name" class="hero__img">
 			</div>
@@ -34,11 +34,14 @@ const loadHeroes = async () => {
 	const publicKey = "9386e28bb9f2c1907aaae18153ac5ea0";
 	const privateKey = "7f2800e7f17ea65a7b81de97708ea05737a02714";
 	const hash = md5(timestamp + privateKey + publicKey);
-	const url = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+	const limit = 100;
+	const url = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${limit}`;
 
 	await axios.get(url)
 	.then((res) => {
-		heroes.value = res.data.data.results;
+		heroes.value = res.data.data.results.filter(hero => {
+			return hero.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available";
+		});
 	})
 	.catch((err) => {
 		console.log(err);
