@@ -75,7 +75,7 @@ body {
 }
 
 .content {
-  background-image: url('~/bg.jpg');
+  background-image: url('../../bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 50px;
