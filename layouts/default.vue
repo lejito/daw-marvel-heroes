@@ -2,7 +2,7 @@
 	<div class="layout">
 		<nav class="navbar">
 			<a class="navbar__link" href=".">
-				<img src="../public/deadpool.png" alt="Logo" class="navbar__img">
+				<img src="@/deadpool.png" alt="Logo" class="navbar__img">
 				<h1 class="navbar__title">
 					{{ appTitle }}
 				</h1>
