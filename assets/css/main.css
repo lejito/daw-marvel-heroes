@@ -234,7 +234,8 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 80%;
+  height: auto;
+  max-height: 80%;
   background-color: var(--color-white);
   border-radius: 20px;
   overflow: hidden;
@@ -266,7 +267,7 @@ body {
   flex-basis: 40%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  height: 100%;
   gap: 20px;
 }
 
@@ -285,7 +286,6 @@ body {
   flex-basis: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 30px;
   padding-right: 10px;
   overflow-y: auto;

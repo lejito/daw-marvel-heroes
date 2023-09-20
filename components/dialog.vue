@@ -12,7 +12,7 @@
 
         <div class="dialog__right">
           <p class="dialog__description">
-            {{ hero.description }}
+            {{ hero.description || 'No description to show...' }}
           </p>
 
           <div class="dialog__extra">
