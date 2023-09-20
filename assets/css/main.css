@@ -2,6 +2,7 @@
 
 :root {
   --color-red: #c62828;
+  --color-red-light: #cf5b5b;
   --color-dark: #333333;
   --color-white: #f3f3f3;
   --color-shadow: rgba(0, 0, 0, 0.2);
@@ -111,6 +112,15 @@ body {
   width: 100%;
   height: calc(850px * 0.3);
   clip-path: polygon(5% 0%, 95% 0%, 100% 5%, 100% 100%, 0% 100%, 0% 5%);
+  background: linear-gradient(100deg, var(--color-red) 8%, var(--color-red-light) 18%, var(--color-red) 33%);
+  background-size: 200% 100%;
+  animation: 1s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
 }
 
 .hero__img {
@@ -256,12 +266,14 @@ body {
   flex-basis: 40%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 20px;
 }
 
 .dialog__img {
   width: auto;
   height: 100%;
+  object-fit: contain;
 }
 
 .dialog__description {
@@ -273,6 +285,7 @@ body {
   flex-basis: 60%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 30px;
   padding-right: 10px;
   overflow-y: auto;
